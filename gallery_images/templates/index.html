@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<div class="container-fluid">
+    <h1 id="home-header" class="text-center">Personal Gallery</h1>
+    <p>“Because just like paintings, pictures speak a thousand words.”</p>
+
+    <div id="images">
+        <div id="image-list">
+            {% for image in images%}
+            <div class="col-xs-6 col-md-4 col-sm-6 col-lg-4">
+                <img onclick="showModal('{{image.name}}','{{image.description}}','{{image.location}}','{{image.category}}','{{image.image.url}}')" class="image img-responsive" src="{{image.image.url}}">
+            </div>
+            {% endfor%}
+
+        </div>
+    </div>
+    <div id="location">
+        <h2>Sort by Location</h2>
+        <div id="location-list">
+            {% for location in locations%}
+            <div class="col-xs-6 col-md-3 col-sm-6 col-lg-3">
+                <a href="{%url 'locations' location.name %}">{{location.name}}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer> Edwin Karanu </footer>
+    <footer> Copyright 2020</footer>
+
+</div>
+
+{% endblock%}
