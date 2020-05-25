@@ -44,4 +44,14 @@ class Image(models.Model):
     category = models.ForeignKey(Category , on_delete = models.CASCADE,default = 'category')
     location = models.ForeignKey(Location, on_delete = models.CASCADE, default = 'location')
 
+    def __str__(self):
+        return self.name
+
+    def save_image(self):
+        self.save()
+        
+    def delete_image():
+        self.delete()
+
+    
     
