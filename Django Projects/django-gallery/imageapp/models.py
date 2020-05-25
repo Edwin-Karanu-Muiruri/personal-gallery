@@ -36,3 +36,12 @@ class Location(models.Model):
     @classmethod
     def display_all_locations(cls):
         return cls.objects.all()
+
+class Image(models.Model):
+    image_name = models.CharField(max_length = 50)
+    image = models.ImageField(upload_to = 'images/')
+    description = models.TextField()
+    category = models.ForeignKey(Category , on_delete = models.CASCADE,default = 'category')
+    location = models.ForeignKey(Location, on_delete = models.CASCADE, default = 'location')
+
+    
