@@ -53,5 +53,18 @@ class Image(models.Model):
     def delete_image():
         self.delete()
 
-    
+    @classmethod
+    def get_image_by_id(cls,id):
+        image = cls.objects.get(id = id)
+        return image
+
+    @classmethod
+    def search_image(cls,category_search):
+        try:
+            searched_category = Category.objects.get(name__icontains = category_search)
+            images = Image.objects.filter(category = searched_category.id)
+            return images
+        
+        except Exception:
+            return "No images matched that category. Please try another eg. Family, Friends or Places"
     
