@@ -67,4 +67,10 @@ class Image(models.Model):
         
         except Exception:
             return "No images matched that category. Please try another eg. Family, Friends or Places"
+
+    @classmethod
+    def filter_by_location(cls,location_search):
+        searched_location = Location.objects.get(name = location_search)
+        images = Image.objects.filter(location = searched_location.id)
+        return images
     
