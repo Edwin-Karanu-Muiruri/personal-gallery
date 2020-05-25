@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<div class="container-fluid">
+    {% if location_images%}
+
+    <h1 class="header">Taken at: {{location}}</h1>
+    <div id="images">
+        <div id="image-list">
+            {% for image in location_images%}
+            <div class="col-xs-6 col-md-4 col-sm-6 col-lg-4">
+                <img onclick="showModal('{{image.name}}','{{image.description}}','{{image.location}}','{{image.category}}','{{image.image.url}}')"
+                    class="image" src="{{image.image.url}}">
+
+            </div>
+            {% endfor%}
+        </div>
+    </div>
+    {% else %}
+    <h1 class="header-alt">No images match this location</h1>
+    {% endif %}
+    <footer> Personal Gallery </footer>
+    <footer> Edwin Karanu 2020</footer>
+</div>
+
+{% endblock%}
