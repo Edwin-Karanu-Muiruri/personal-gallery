@@ -33,4 +33,6 @@ class Location(models.Model):
     def update_location(cls,id,value):
         cls.objects.filter(id = id).update(name = value)
 
-    @
+    @classmethod
+    def display_all_locations(cls):
+        return cls.objects.all()
