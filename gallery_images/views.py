@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Image, Category, Location
+from .models import Images, Category, Location
 
 # Create your views here.
 
@@ -8,7 +8,7 @@ def index(request):
     View function to render index page
     '''
     title = " Personal Gallery"
-    images = Image.display_all_images()
+    images = Images.display_all_images()
     return render(request, "index.html", {"title": title, "images":images})
 def image_search(request):
     '''
