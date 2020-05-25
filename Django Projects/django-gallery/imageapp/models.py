@@ -16,3 +16,4 @@ class Category(models.Model):
     @classmethod
     def update_category(cls,id,value):
         cls.objects.filter(id = id).update(name = value)
+
