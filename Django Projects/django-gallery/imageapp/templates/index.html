@@ -7,9 +7,11 @@
     </div>
     <div class="images">
         <div id="all-images">
-            <div class="col-xs-6 col-md-4 col-sm-6 col-lg-4">
-                <img class="img-responsive" src="{{media.images.image.url}}">
+            {% for image in images %}
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img class="img-responsive" src="{{image.image.url}}" style="width: 500px;height:500px;">
             </div>
+            {% endfor %}
         </div>
     </div>
 </div>
