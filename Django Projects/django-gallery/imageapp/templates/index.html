@@ -1,8 +1,18 @@
 {%extends 'base.html'%}
-
+{% load static %}
 {% block content %}
-<div>
-    <p>Because like paintings, pictures speak a thousand words!</p>
+<div class="container-fluid">
+    <div>
+        <p>Because like paintings, pictures speak a thousand words!</p>
+    </div>
+    <div class="images">
+        <div id="all-images">
+            <div class="col-xs-6 col-md-4 col-sm-6 col-lg-4">
+                <img class="img-responsive" src="{{media.images.image.url}}">
+            </div>
+        </div>
+    </div>
 </div>
+
 
 {% endblock %}
