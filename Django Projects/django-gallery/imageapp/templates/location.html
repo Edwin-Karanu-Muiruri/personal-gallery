@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<div class="container-fluid">
+    {% if location_images %}
+
+    <h1 class="header">Images taken at {{location}}</h1>
+    <div class="images">
+        <div class="image-list">
+            {% for image in location_images%}
+            <div class="col-xs-6 col-md-4 col-sm-6 col-lg-4">
+                <img class="image" src="{{image.image.url}}">
+            </div>
+            {% endfor%}
+        </div>
+    </div>
+    {% else %}
+    <h1 class="header-alt">No images were taken in that location</h1>
+    {% endif %}
+</div>
+
+{% endblock%}
