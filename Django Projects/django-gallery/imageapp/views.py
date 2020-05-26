@@ -27,3 +27,11 @@ def image_search(request):
     else:
         message = "Please input a category to be searched"
         return render(request, 'search.html', {"message":message,"title": title})
+
+def location_images(request,location):
+    '''
+    View function to display images by their location
+    '''
+    location_images = Image.filter_by_location(location)
+
+    return render(request, 'location.html', { "location_images" :location_images, "location":location})
